@@ -7,7 +7,26 @@
       //
       // TODO: Implement this function.
       //
-      const transformObject = () => {}
+      const transformObject = (test) => {
+        Object.keys(test).forEach(k => {
+          if(typeof test[k] === 'object') {
+            Object.keys(test[k]).forEach(i  => {
+              if(typeof test[k][i] === 'number') {
+              test[k][i] = test[k][i] + 6
+                } else {
+                  test[k][i] = test[k][i] + ' BLARGH'
+                }
+            });
+          } else {
+            if(typeof test[k] === 'number') {
+               test[k] = test[k] + 6
+          } else {
+            test[k] = test[k] + ' BLARGH'
+          }
+        }
+        });
+        return test
+       }
     </script>
   </head>
 
